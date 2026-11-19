@@ -27,6 +27,11 @@ class TodoApiClientTest : MockWebServerTest() {
     }
 
     @Test
+    fun defaultBaseEndpointIncludesTrailingSlash() {
+        assertTrue(todoapiclient.TodoApiClientConfig.BASE_ENDPOINT.endsWith("/"))
+    }
+
+    @Test
     fun sendsAcceptAndContentTypeHeaders() {
         enqueueMockResponse(200, "getTasksResponse.json")
 
